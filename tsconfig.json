@@ -14,11 +14,13 @@
     "noUnusedParameters": true,
     "removeComments": true,
     "checkJs": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "paths": {
       "@/*": ["/*"],
       "@components/*": ["components/*"]
     }
   },
-  "exclude": ["node_modules"],
   "include": ["**/*.ts", "**/*.tsx"]
 }
