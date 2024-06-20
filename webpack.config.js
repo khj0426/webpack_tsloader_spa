@@ -10,6 +10,9 @@ module.exports = {
   //entry:
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
   },
 
   //loader config
@@ -23,4 +26,22 @@ module.exports = {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
   },
+
+  devServer: {
+    historyApiFallback: true,
+    compress: true,
+    hot: true,
+    port: 8088,
+  },
+
+  plugins: [
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+    }),
+
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
