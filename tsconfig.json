@@ -3,6 +3,7 @@
     "outDir": "./dist",
     "target": "ES5",
     "strict": true,
+    "noEmit": false,
     "module": "ES6",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "skipLibCheck": true,
@@ -16,7 +17,6 @@
     "checkJs": true,
     "moduleResolution": "node",
     "declaration": true,
-    "emitDeclarationOnly": true,
     "paths": {
       "@/*": ["/*"],
       "@components/*": ["components/*"]

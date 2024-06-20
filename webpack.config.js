@@ -1,25 +1,29 @@
 const webpack = require('webpack');
 const path = require('path');
-const { isProduction } = require('./@types/helper/index');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: isProduction() ? 'production' : 'development',
-  devtool: isProduction() ? 'hidden-source-map' : 'eval',
-  //entry:
+  entry: './src/index.tsx',
+  mode: process.env.NODE_ENV == 'production' ? 'production' : 'development',
+  devtool: process.env.NODE_ENV == 'production' ? 'hidden-source-map' : 'eval',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
+      /*
       '@': path.resolve(__dirname, './src'),
+      */
     },
   },
 
-  //loader config
+  // loader config
   module: {
-    rules: [],
-    exclude: /node_modules/,
-    use: ['ts-loader'],
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'ts-loader',
+      },
+    ],
   },
 
   output: {
@@ -41,7 +45,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-
     new webpack.HotModuleReplacementPlugin(),
   ],
 };

@@ -7,5 +7,5 @@ export declare function check<A, B>(
 ): void;
 
 export const isProduction = () => {
-  return process.env.NODE_ENV == 'production';
-};
+  return process.env.NODE_ENV == 'production'
+}

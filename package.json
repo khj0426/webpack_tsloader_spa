@@ -4,6 +4,9 @@
   "description": "웹팩으로 하나부터 열까지 SPA 구축해보기. (TS와 각종 최적화를 곁들인..)",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack serve --mode development --open --hot",
+    "build": "webpack --mode production",
+    "start": "webpack --mode development",
     "test": "vitest --typecheck",
     "test:run": "vitest run --typecheck",
     "typecheck": "tsc"
