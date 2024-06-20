@@ -5,3 +5,7 @@ const PASS = 1;
 export declare function check<A, B>(
   params: Equal<Equal<A, B>, typeof PASS>
 ): void;
+
+export const isProduction = () => {
+  return process.env.NODE_ENV == 'production';
+};
